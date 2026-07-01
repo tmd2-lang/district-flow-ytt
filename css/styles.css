@@ -1380,19 +1380,15 @@ main,
 /* Teachers */
 .teacher-grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-}
-
-@media (min-width: 768px) {
-  .teacher-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .teacher-card {
   border-radius: var(--radius-md);
-  padding: 1.5rem 1rem;
+  padding: 2.5rem 1.5rem;
   text-align: center;
   transition: transform 0.35s var(--ease-out), box-shadow 0.35s;
 }
@@ -1403,9 +1399,9 @@ main,
 }
 
 .teacher-avatar {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 1rem;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba(166, 193, 203, 0.35), rgba(111, 139, 121, 0.2));
   border: 1px solid var(--glass-border);
