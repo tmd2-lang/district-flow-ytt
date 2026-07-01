@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!steps.length || !visuals.length) return;
 
+  // Adjust trigger point based on device
+  // On mobile, the visual is at the top 40vh, so we want the text to trigger lower down
+  const isMobile = window.innerWidth <= 768;
+  const rootMargin = isMobile ? "-40% 0px -20% 0px" : "-45% 0px -45% 0px";
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -23,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, {
-    // Trigger when the element crosses the middle 10% of the screen
-    rootMargin: "-45% 0px -45% 0px", 
+    // Trigger based on device viewport
+    rootMargin: rootMargin, 
     threshold: 0
   });
 

@@ -925,13 +925,7 @@ main,
   }
 }
 
-/* Fix Parallax on Mobile */
-@media (max-width: 768px) {
-  .parallax-break {
-    background-attachment: scroll; /* Fixes iOS bug */
-    height: 40vh;
-  }
-}
+
 
 /* Bento */
 .bento {
@@ -1217,6 +1211,19 @@ main,
   border-top: 1px solid rgba(111, 139, 121, 0.1);
   border-bottom: 1px solid rgba(111, 139, 121, 0.1);
   margin-top: 2rem;
+}
+
+#parallax-1 { background-image: url('../assets/images/DFY%20studio.webp'); }
+#parallax-2 { background-image: url('../assets/images/IMG_0551_web.jpg'); }
+
+/* Fix Parallax on Mobile and swap to portrait images */
+@media (max-width: 768px) {
+  .parallax-break {
+    background-attachment: scroll; /* Fixes iOS bug */
+    height: 50vh;
+  }
+  #parallax-1 { background-image: url('../assets/images/IMG_4180_VSCO_edited.jpg'); }
+  #parallax-2 { background-image: url('../assets/images/IMG_4176_VSCO_edited.jpg'); }
 }
 
 /* Why */
