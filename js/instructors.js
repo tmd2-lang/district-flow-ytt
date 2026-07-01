@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = instructorData[instructorId];
     if (!data) return;
 
-    modalImage.style.backgroundImage = \`url('\${data.image}')\`;
+    modalImage.style.backgroundImage = `url('${data.image}')`;
     modalName.textContent = data.name;
     modalTitle.textContent = data.title;
     modalBio.innerHTML = data.bio;
