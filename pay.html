@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay Application Fee - District Flow YTT</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..600;1,300..600&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .nav-header {
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--paper);
+    }
+    
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--slate);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .back-link:hover {
+      color: var(--ink);
+    }
+    
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+    
+    .embed-container {
+      width: 100%;
+      max-width: 500px;
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lift);
+      padding: 3rem;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .embed-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .embed-subtitle {
+      color: var(--slate);
+      margin-bottom: 2rem;
+    }
+    
+    /* Mock Mariana Tek Widget */
+    .mock-widget {
+      border: 2px dashed rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 3rem 1rem;
+      background: rgba(0,0,0,0.02);
+      color: var(--slate);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="nav-header">
+    <a href="index.html" class="back-link">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to website
+    </a>
+    <div style="font-family: var(--font-display); letter-spacing: 0.1em; font-weight: 500;">DISTRICT FLOW</div>
+  </header>
+
+  <!-- Content -->
+  <main class="main-content">
+    <div class="embed-container reveal">
+      <h1 class="embed-title">Application Fee</h1>
+      <p class="embed-subtitle">Complete your $25 non-refundable fee to finalize your application.</p>
+      
+      <!-- Placeholder for Xplor/Mariana Tek Embed -->
+      <div class="mock-widget">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem; opacity: 0.5;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <br>
+        <strong>[ Mariana Tek Checkout Widget ]</strong>
+        <br><br>
+        This box will be replaced with the actual Mariana Tek / Xplor secure embed code once provided.
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
