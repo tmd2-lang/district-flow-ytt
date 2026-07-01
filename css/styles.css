@@ -844,7 +844,7 @@ main,
 }
 
 .scrolly-step {
-  min-height: 50vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
