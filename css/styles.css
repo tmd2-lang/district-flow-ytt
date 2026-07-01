@@ -1940,13 +1940,13 @@ main,
 
 .modal-content {
   position: relative;
-  width: 90%;
-  max-width: 500px;
+  width: 95%;
+  max-width: 900px;
   max-height: 90vh;
   background: var(--cloud);
   border-radius: var(--radius-lg);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden;
   opacity: 0;
   transform: translateY(20px) scale(0.95);
@@ -1987,8 +1987,9 @@ main,
 }
 
 .modal-image-container {
-  width: 100%;
-  height: 300px;
+  width: 45%;
+  height: auto;
+  min-height: 400px;
   flex-shrink: 0;
 }
 
@@ -2000,7 +2001,8 @@ main,
 }
 
 .modal-body {
-  padding: 2rem;
+  width: 55%;
+  padding: 3.5rem 3rem;
   overflow-y: auto;
   /* Custom scrollbar */
   scrollbar-width: thin;
@@ -2054,6 +2056,7 @@ main,
 
 @media (max-width: 768px) {
   .modal-content {
+    flex-direction: column;
     width: 100%;
     height: 100%;
     max-height: 100vh;
@@ -2063,5 +2066,16 @@ main,
   
   .modal.is-open .modal-content {
     transform: translateY(0);
+  }
+
+  .modal-image-container {
+    width: 100%;
+    height: 35vh;
+    min-height: 250px;
+  }
+
+  .modal-body {
+    width: 100%;
+    padding: 2.5rem 1.5rem;
   }
 }
