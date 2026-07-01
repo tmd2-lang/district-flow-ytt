@@ -35,7 +35,7 @@ const instructorData = {
   }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+function initInstructors() {
   const modal = document.getElementById("instructor-modal");
   const modalImage = document.getElementById("modal-image");
   const modalName = document.getElementById("modal-name");
@@ -91,4 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initInstructors);
+} else {
+  initInstructors();
+}
