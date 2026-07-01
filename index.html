@@ -336,19 +336,19 @@
           <p class="section-lead reveal">District Flow instructors leading your training. Bios coming soon.</p>
         </div>
         <div class="teacher-grid reveal-stagger">
-          <div class="teacher-card glass-card reveal-child">
+          <div class="teacher-card glass-card reveal-child" data-instructor="adrianne" style="cursor: pointer;">
             <div class="teacher-avatar" style="background-image: url('assets/images/Adrianne.jpg'); background-size: cover; background-position: center;"></div>
             <h4>Adrianne</h4>
             <p>Details soon</p>
           </div>
-          <div class="teacher-card glass-card reveal-child">
+          <div class="teacher-card glass-card reveal-child" data-instructor="alyssa" style="cursor: pointer;">
             <div class="teacher-avatar" style="background-image: url('assets/images/alyssa.jpg'); background-size: cover; background-position: center;"></div>
-            <h4>Alyssa</h4>
+            <h4>Dr. Allyssa Soto</h4>
             <p>Details soon</p>
           </div>
-          <div class="teacher-card glass-card reveal-child">
+          <div class="teacher-card glass-card reveal-child" data-instructor="chris" style="cursor: pointer;">
             <div class="teacher-avatar" style="background-image: url('assets/images/chris.jpg'); background-size: cover; background-position: center;"></div>
-            <h4>Chris</h4>
+            <h4>Chris Sherman</h4>
             <p>Details soon</p>
           </div>
           <div class="teacher-card glass-card reveal-child">
@@ -478,9 +478,29 @@
     <a href="apply.html" class="btn btn-primary" data-href="apply">Start your application</a>
   </div>
 
+  <!-- Instructor Modal -->
+  <div id="instructor-modal" class="modal" aria-hidden="true">
+    <div class="modal-overlay"></div>
+    <div class="modal-content glass-card">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-image-container">
+        <div id="modal-image" class="modal-image"></div>
+      </div>
+      <div class="modal-body">
+        <h3 id="modal-name">Name</h3>
+        <p id="modal-title" class="modal-title">District Flow Instructor</p>
+        <div id="modal-bio" class="modal-bio-text">
+          <!-- Bio injected here -->
+        </div>
+        <a href="apply.html" class="btn btn-primary btn-magnetic" data-href="apply" style="width: 100%; margin-top: 1.5rem;">Start your application</a>
+      </div>
+    </div>
+  </div>
+
   <script src="js/shader.js"></script>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
   <script src="js/scrolly.js"></script>
+  <script src="js/instructors.js"></script>
 </body>
 </html>
