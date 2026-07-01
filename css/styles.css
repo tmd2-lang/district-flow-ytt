@@ -1781,3 +1781,77 @@ main,
     padding: 6rem 4rem;
   }
 }
+
+/* Who This Is For Cards - $10k Look */
+.who-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .who-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.who-card {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 3rem;
+  background: rgba(31, 33, 32, 0.02); /* Subtle dark tint for light bg */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(31, 33, 32, 0.08); /* Delicate dark border */
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 250px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, border-color 0.4s ease;
+}
+
+.who-card:hover {
+  transform: translateY(-5px);
+  background: rgba(31, 33, 32, 0.04);
+  border-color: rgba(165, 172, 161, 0.5); /* Subtle sage glow */
+}
+
+.who-card-number {
+  position: absolute;
+  top: -2rem;
+  right: -1rem;
+  font-family: var(--font-display);
+  font-size: 12rem;
+  line-height: 1;
+  color: rgba(31, 33, 32, 0.03); /* Faint dark watermark */
+  font-weight: 300;
+  pointer-events: none;
+  z-index: 0;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.who-card:hover .who-card-number {
+  color: rgba(165, 172, 161, 0.08);
+}
+
+.who-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.who-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.who-card p {
+  color: var(--slate);
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
