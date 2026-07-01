@@ -12,7 +12,7 @@
   --stone: #c6c8c1;
 
   --font-display: "Spectral", "Georgia", serif;
-  --font-body: "Jost", system-ui, sans-serif;
+  --font-body: "Montserrat", system-ui, sans-serif;
 
   --text-sm: clamp(0.8rem, 1.5vw, 0.9rem);
   --text-base: clamp(1rem, 2vw, 1.0625rem);
