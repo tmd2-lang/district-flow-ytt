@@ -877,23 +877,59 @@ main,
 @media (max-width: 768px) {
   .scrolly-container {
     flex-direction: column;
+    padding: 0;
   }
   
   .scrolly-sticky {
-    position: relative;
-    height: 300px;
-    top: auto;
+    position: sticky;
+    top: 60px;
+    height: 40vh;
+    width: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .scrolly-visuals {
+    width: 100%;
+    height: 100%;
+  }
+
+  .scrolly-visual {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    aspect-ratio: auto;
   }
   
   .scrolly-content {
-    padding: 2rem 0;
+    position: relative;
+    z-index: 2;
+    padding: 0;
+    background: transparent;
   }
   
   .scrolly-step {
     min-height: auto;
-    margin-bottom: 4rem;
+    padding: 3rem 1.5rem;
+    margin: 50vh 0; /* Creates breathing room to see the image before text covers it */
+    background: var(--cloud);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
     opacity: 1;
     transform: none;
+  }
+
+  /* Make the first step have less top margin so it enters faster */
+  .scrolly-step:first-child {
+    margin-top: 20vh;
+  }
+}
+
+/* Fix Parallax on Mobile */
+@media (max-width: 768px) {
+  .parallax-break {
+    background-attachment: scroll; /* Fixes iOS bug */
+    height: 40vh;
   }
 }
 
