@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = Object.fromEntries(formData.entries());
 
       // Send to Google Apps Script
-      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwXf1zp6QUPo48CkzqrVuILV7_YBk9kjUAhCfgyBFdaKEhfPIQT5bkUW6ZuEldR5ps/exec";
+      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzgku1-f7nOA_rz5h-gLW2UYhqZXy3Fsaitdyty67gKCVuxIf_cSPzfpGTdeATijpU/exec";
 
       fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
