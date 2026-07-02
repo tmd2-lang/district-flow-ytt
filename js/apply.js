@@ -150,20 +150,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function submitForm() {
     if (validateStep(currentStepIndex)) {
-      // Collect data here if needed
-      // const formData = new FormData(form);
-      // const data = Object.fromEntries(formData.entries());
-      // console.log("Form Submitted", data);
-      
-      // Simulate form submission to backend
       const submitBtn = steps[currentStepIndex].querySelector('.submit-btn');
-      submitBtn.textContent = 'Submitting...';
+      const originalText = submitBtn.textContent;
+      submitBtn.innerHTML = '<span class="spinner" style="display:inline-block; margin-right:8px; animation: spin 1s linear infinite;">↻</span> Submitting...';
       submitBtn.disabled = true;
 
-      setTimeout(() => {
-        // Go to success step (last step)
-        goToStep(steps.length - 1);
-      }, 800);
+      // Extract all form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Send to Google Apps Script
+      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwXf1zp6QUPo48CkzqrVuILV7_YBk9kjUAhCfgyBFdaKEhfPIQT5bkUW6ZuEldR5ps/exec";
+
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        // Send as text/plain to bypass CORS preflight
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        }
+      })
+      .then(response => response.json())
+      .then(result => {
+         if (result.result === "success") {
+           goToStep(steps.length - 1);
+         } else {
+           alert("Something went wrong saving your application. Please try again or email us directly.");
+           submitBtn.textContent = originalText;
+           submitBtn.disabled = false;
+         }
+      })
+      .catch(error => {
+         console.error('Error submitting form:', error);
+         alert("A network error occurred. Please check your connection and try again.");
+         submitBtn.textContent = originalText;
+         submitBtn.disabled = false;
+      });
     }
   }
 });
