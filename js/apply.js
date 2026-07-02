@@ -173,6 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(response => response.json())
       .then(result => {
          if (result.result === "success") {
+           // Fire Meta Pixel Lead event
+           if (typeof fbq === 'function') {
+             fbq('track', 'Lead');
+           }
            goToStep(steps.length - 1);
          } else {
            alert("Something went wrong saving your application. Please try again or email us directly.");
