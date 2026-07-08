@@ -32,6 +32,16 @@ const instructorData = {
       
       <p>Wanting to share what they had learned and experienced, Chris completed their 200-hour Yoga Teacher Training in 2016 at Yoga District. They followed it with certifications in Mat Pilates (2019), Pre/Postnatal Yoga (2020), and Group Fitness (2020), alongside specialized trainings on yoga for autism, TBI, and trauma.</p>
     `
+  },
+  carley: {
+    name: "Carley",
+    title: "e-RYT 500, District Flow Instructor",
+    image: "assets/images/Carley.png",
+    bio: `
+      <p>Carley is an e-RYT 500 and has been teaching yoga since 2013. She started out practicing Baptiste-inspired hot power yoga and even got her 300 hour certification in power yoga in 2014, but over the years found her way into gentler and more intentional practices. In 2016 she completed a 30 hour yin yoga training and spent the next 4 years teaching a mixture of yin and hot power classes. In 2020, Carley completed a 50 hour continuing education training with the Accessible Yoga School, where she learned about making yoga more accessible and finding more “off the mat” practices that she can guide her students towards. This training also pointed Carley towards studying and learning more about the ethics of being a yoga teacher in our current society, and more specifically what the ethical responsibilities as yoga teacher are as people who teach a path that liberates from suffering. Currently, Carley is enrolled and participating in a 50 hour continuing education program, “Yoga Social Justice Certification" with Susanna Barkataki, where she is working on a practicum that will combine her passions for inclusivity, community, and bringing yoga beyond the asana space.</p>
+      
+      <p>Carley is a sensation based and trauma informed teacher who brings a passion for movement, lovingkindness, and inclusivity and strives to make every class as accessible to all as possible. While she still occasionally teaches power or vinyasa classes, she now focuses mostly on yin and slow flow classes that help provide a bit more space for students to hear about the expansive world and philosophies surrounding yoga.</p>
+    `
   }
 };
 
