@@ -181,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
            // Fire GA4 conversion event
            if (typeof gtag === 'function') {
              gtag('event', 'ytt_apply');
+             gtag('event', 'conversion', {'send_to': 'AW-17913076908/e4YaCIPc9c8cEKy5z91C'});
            }
            
            goToStep(steps.length - 1);
