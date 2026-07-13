@@ -177,6 +177,12 @@ document.addEventListener('DOMContentLoaded', () => {
            if (typeof fbq === 'function') {
              fbq('track', 'Lead');
            }
+           
+           // Fire GA4 conversion event
+           if (typeof gtag === 'function') {
+             gtag('event', 'ytt_apply');
+           }
+           
            goToStep(steps.length - 1);
          } else {
            alert("Something went wrong saving your application. Please try again or email us directly.");
