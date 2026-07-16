@@ -159,37 +159,56 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
-      // Send to Google Apps Script
-      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzgku1-f7nOA_rz5h-gLW2UYhqZXy3Fsaitdyty67gKCVuxIf_cSPzfpGTdeATijpU/exec";
+      // Map data to Google Form entry IDs
+      const googleFormData = new FormData();
+      googleFormData.append('entry.1259628041', data.fullName || '');
+      googleFormData.append('entry.691831395', data.preferredName || '');
+      googleFormData.append('entry.606437191', data.pronouns || '');
+      googleFormData.append('entry.822717005', data.email || '');
+      googleFormData.append('entry.861627515', data.location || '');
+      googleFormData.append('entry.1148455587', data.work || '');
+      googleFormData.append('entry.1933749134', data.relationship || '');
+      googleFormData.append('entry.278265767', data.firstFound || '');
+      googleFormData.append('entry.1026617862', data.currentPractice || '');
+      googleFormData.append('entry.1593210737', data.influences || '');
+      googleFormData.append('entry.281801859', data.wherePractice || '');
+      googleFormData.append('entry.976591315', data.goals || '');
+      googleFormData.append('entry.1739093264', data.commitment || '');
+      googleFormData.append('entry.85835337', data.commitmentDetails || '');
+      googleFormData.append('entry.1894710284', data.injuries || '');
+      googleFormData.append('entry.780045024', data.accommodations || '');
+      googleFormData.append('entry.688776529', data.anythingElse || '');
+      googleFormData.append('entry.1458245517', data.paymentPref || '');
+      googleFormData.append('entry.94608760', 'By submitting this application, you acknowledge: You are ready to commit to the full training experience. You understand this is a space for growth, reflection, and accountability. All information shared is true to the best of your knowledge.');
+      googleFormData.append('entry.1944213710', data.signature || '');
+      
+      const d = new Date();
+      googleFormData.append('entry.1297530892_year', d.getFullYear());
+      googleFormData.append('entry.1297530892_month', d.getMonth() + 1);
+      googleFormData.append('entry.1297530892_day', d.getDate());
+      googleFormData.append('entry.1297530892', d.toISOString().split('T')[0]);
 
-      fetch(GOOGLE_SCRIPT_URL, {
+      // Send to Google Forms
+      const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeB7lyrV38Gd5_D9WZfi98y7nKJfGkjs9DL9LhoQ9G7YtbUIA/formResponse";
+
+      fetch(GOOGLE_FORM_URL, {
         method: "POST",
-        body: JSON.stringify(data),
-        // Send as text/plain to bypass CORS preflight
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        }
+        mode: "no-cors",
+        body: googleFormData
       })
-      .then(response => response.json())
-      .then(result => {
-         if (result.result === "success") {
-           // Fire Meta Pixel Lead event
-           if (typeof fbq === 'function') {
-             fbq('track', 'Lead');
-           }
-           
-           // Fire GA4 conversion event
-           if (typeof gtag === 'function') {
-             gtag('event', 'ytt_apply');
-             gtag('event', 'conversion', {'send_to': 'AW-17913076908/e4YaCIPc9c8cEKy5z91C'});
-           }
-           
-           goToStep(steps.length - 1);
-         } else {
-           alert("Something went wrong saving your application. Please try again or email us directly.");
-           submitBtn.textContent = originalText;
-           submitBtn.disabled = false;
+      .then(() => {
+         // With no-cors, we assume success
+         if (typeof fbq === 'function') {
+           fbq('track', 'Lead');
          }
+         
+         // Fire GA4 conversion event
+         if (typeof gtag === 'function') {
+           gtag('event', 'ytt_apply');
+           gtag('event', 'conversion', {'send_to': 'AW-17913076908/e4YaCIPc9c8cEKy5z91C'});
+         }
+         
+         goToStep(steps.length - 1);
       })
       .catch(error => {
          console.error('Error submitting form:', error);
