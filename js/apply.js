@@ -188,21 +188,30 @@ document.addEventListener('DOMContentLoaded', () => {
       googleFormData.append('entry.1297530892_day', d.getDate());
       googleFormData.append('entry.1297530892', d.toISOString().split('T')[0]);
 
-      // Send to Google Forms
       const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeB7lyrV38Gd5_D9WZfi98y7nKJfGkjs9DL9LhoQ9G7YtbUIA/formResponse";
+      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzgku1-f7nOA_rz5h-gLW2UYhqZXy3Fsaitdyty67gKCVuxIf_cSPzfpGTdeATijpU/exec";
 
-      fetch(GOOGLE_FORM_URL, {
+      const formReq = fetch(GOOGLE_FORM_URL, {
         method: "POST",
         mode: "no-cors",
         body: googleFormData
-      })
+      });
+
+      const scriptReq = fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        }
+      });
+
+      // Wait for both to complete
+      Promise.all([formReq, scriptReq])
       .then(() => {
-         // With no-cors, we assume success
          if (typeof fbq === 'function') {
            fbq('track', 'Lead');
          }
          
-         // Fire GA4 conversion event
          if (typeof gtag === 'function') {
            gtag('event', 'ytt_apply');
            gtag('event', 'conversion', {'send_to': 'AW-17913076908/e4YaCIPc9c8cEKy5z91C'});
@@ -211,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
          goToStep(steps.length - 1);
       })
       .catch(error => {
-         console.error('Error submitting form:', error);
+         console.error('Error submitting forms:', error);
          alert("A network error occurred. Please check your connection and try again.");
          submitBtn.textContent = originalText;
          submitBtn.disabled = false;
